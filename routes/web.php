@@ -26,3 +26,13 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+//LLamar a componente de pagina completa
+/* Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', CreatePost::class
+    )->name('dashboard');
+}); */
