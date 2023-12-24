@@ -11,10 +11,14 @@
         "laravel/jetstream": "^4.1",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "livewire/livewire": "^3.0"
+        "livewire/livewire": "^3.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
+        "laravel-lang/attributes": "^2.7",
+        "laravel-lang/common": "^6.1",
+        "laravel-lang/lang": "^14.0",
+        "laravel-lang/publisher": "^16.2",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",

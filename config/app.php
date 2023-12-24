@@ -15,6 +15,7 @@ return [
     | any other location as required by the application or its packages.
     |
     */
+    
 
     'name' => env('APP_NAME', 'Laravel'),
 
@@ -83,7 +84,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -96,7 +97,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
