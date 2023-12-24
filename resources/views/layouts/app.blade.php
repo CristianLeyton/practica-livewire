@@ -13,9 +13,11 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+        
         <!-- Styles -->
+        
         @livewireStyles
+        <link rel="stylesheet" href="{{ asset('styles/styles.css') }}">
     </head>
     <body class="font-sans antialiased">
         <x-banner />
