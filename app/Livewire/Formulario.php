@@ -1,7 +1,12 @@
 <?php
 
+//Comando para crear este componente: 
+//php artisan make:livewire Formulario
+
 namespace App\Livewire;
 
+use App\Livewire\Forms\PostCreateForm;
+use App\Livewire\Forms\PostEditForm;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
@@ -12,11 +17,12 @@ class Formulario extends Component
 
     public $categories, $tags;
 
-    public $category_id = '', $title, $content;
-
-    public $selectedTags = [];
-
+    public PostCreateForm $postCreate;
+    
+    public PostEditForm $postEdit;
+    
     public $posts;
+
 
     public function mount(){
         $this->categories = Category::all();
@@ -26,22 +32,25 @@ class Formulario extends Component
     }
 
     public function save() {
-
-        /* $post = Post::create([
-            'category_id' => $this->category_id,
-            'title' => $this->title,
-            'content' => $this->content,
-        ]); */
-
-        $post = Post::create(
-            $this->only('category_id', 'title', 'content')
-        );
-
-        $post->tags()->attach($this->selectedTags);
-
-        $this->reset(['category_id', 'title', 'content', 'selectedTags']);
+        $this->postCreate->save();
         //Despues de crear el registro, actualizo la propiedad posts, 
         //para que se visualice en la vista
+        $this->posts = Post::all();
+    }
+
+    public function edit($postId) {
+        $this->resetValidation(); //resetea los errores de validacion
+        $this->postEdit->edit($postId);
+    }
+
+    public function update() {
+        $this->postEdit->update();
+        $this->posts = Post::all();
+    }
+
+    public function destroy($postId) {
+        $post = Post::find($postId);
+        $post->delete();
         $this->posts = Post::all();
     }
 
