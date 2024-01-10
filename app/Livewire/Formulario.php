@@ -36,6 +36,8 @@ class Formulario extends Component
         //Despues de crear el registro, actualizo la propiedad posts, 
         //para que se visualice en la vista
         $this->posts = Post::all();
+        //Emitimos un evento y le pasamos un valor por el parametro
+        $this->dispatch('action', 'Nuevo post creado');
     }
 
     public function edit($postId) {
@@ -46,12 +48,14 @@ class Formulario extends Component
     public function update() {
         $this->postEdit->update();
         $this->posts = Post::all();
+        $this->dispatch('action', 'Post actualizado');
     }
 
     public function destroy($postId) {
         $post = Post::find($postId);
         $post->delete();
         $this->posts = Post::all();
+        $this->dispatch('action', 'Post eliminado');
     }
 
     public function render()
